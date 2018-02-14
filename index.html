@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="movie">
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>豆瓣</title>
+   <link rel="stylesheet" href="css/bootstrap.min.css">
+   <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+	  <div class="container-fluid">
+		 <!--logo-->
+		 <div class="navbar-header">
+			<a class="navbar-brand" href="#">豆瓣电影</a>
+		 </div>
+		 <!--navigation bar-->
+		 <div id="navbar" class="navbar-collapse collapse">
+			<!--search bar-->
+			<form class="navbar-form navbar-right" ng-controller="SearchController" ng-submit="search()">
+			   <input type="text" class="form-control" placeholder="请输入您想要搜索的内容..." ng-model="input">
+			</form>
+		 </div>
+	  </div>
+   </nav>
+
+   <div class="container-fluid">
+	  <div class="row">
+		 <!--side bar-->
+		 <div class="col-sm-3 col-md-2 sidebar">
+			<ul class="nav nav-sidebar">
+			   <li auto-focus><a href="#/in_theaters/1">正在热映</a></li>
+			   <li auto-focus><a href="#/coming_soon/1">即将上映</a></li>
+			   <li auto-focus><a href="#/top250/1">top250</a></li>
+			</ul>
+		 </div>
+		 <!--view-->
+		 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-view>
+			<!--内容展示区-->
+		 </div>
+	  </div>
+   </div>
+
+   <!-- scripts -->
+   <script src="js/angular.min.js"></script>
+   <script src="js/angular-route.min.js"></script>
+   <script src="js/app.js"></script><!--master module-->
+   <script src="js/http.js"></script><!--跨域请求-->
+   <script src="movie_list/controller.js"></script><!--view module-->
+   <script src="js/auto_focus.js"></script><!--自动获得焦点-->
+</body>
+</html>
+
+
